@@ -1,0 +1,31 @@
+
+<!doctype html>
+<script src="https://en.js.cx/test/libs.js"></script>
+<script>
+
+  let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+  };
+  
+  
+  function multiplyNumeric(obj) {
+    
+    /* your code */
+   /* your code */
+    for(let val in obj){
+      if(typeof obj[val] == 'number'){
+        obj[val]=obj[val]*2;
+        //alert(obj[val])
+      }
+    }
+  }
+  
+  multiplyNumeric(menu);
+  
+  alert( "menu width=" + menu.width + " height=" + menu.height + " title=" + menu.title );
+
+</script>
+
+</html>
