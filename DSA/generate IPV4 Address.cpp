@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void solve(string s, int i, int n, int count, string temp,
+		vector<string>& res)
+{
+	if (i == (n + 1) && count == 5) {
+		res.push_back(temp.substr(1));
+	}
+
+	// Digits of a number ranging 0-255 can lie only between
+	// 0-3
+	for (int k = i; k < i + 3 && k <= n; k++) {
+		string ad = s.substr(i, k - i + 1);
+
+		// Return if string starting with '0' or it is
+		// greater than 255.
+		if ((s[i] == '0'&&ad.size()>1) || stol(ad) > 255)
+			return;
+
+		// Recursively call for another level.
+        //cout<< temp << endl;
+		solve(s, k + 1, n, count + 1, temp + '.' + ad, res);
+	}
+}
+
+int main()
+{
+	string s = "25525511135";
+	int n = s.length();
+
+	vector<string> ans;
+
+	solve(s, 0, n - 1, 1, "", ans);
+
+	for (string s : ans)
+		cout << s << endl;
+
+	return 0;
+}
